@@ -39,7 +39,7 @@ spec:
           deploy_every: 30m
 ```
 
-## Intial Design
+## Initial Design
 This image contains a block diagram in the design of a yaml file. This is subject to change as this process will be evolving over a number of weeks.
 
 ![Image of cloud-platform-team](./images/cloud-platform-team.png)
