@@ -39,3 +39,6 @@ spec:
 This image contains a block diagram in the design of a yaml file. This is subject to change as this process will be evolving over a number of weeks.
 
 ![Image of cloud-platform-team](./images/cloud-platform-team.png)
+
+## Proof of concept
+As there's a timebox on this exercise (maximum time of sprint) I will limit this proof of concept to a basic namespace creation, with RBAC and network policy. The interesting and useful part of this project will exist in the form of multiple CRDs to create external (to the cluster) resources, which comes in the form of concourse pipelines and AWS resources to name a few. This will be left for a later date, should we want to persit with this project.
