@@ -7,6 +7,10 @@ During the latest round of Cloud Platform spikes the following issues was create
 
 This issue outlines the desire to move processes inside the Kubernetes ecosystem by extending its API in some way. This repository suggests turning the above process of on-boarding into a simple create and apply manifest solution. 
 
+- [Premise](#premise)
+- [Initial Design](#initial-design)
+- [Proof of concept](#proof-of-concept)
+
 ## Premise
 The idea of the Cloud Platform Team CRD and control loop is to allow users to on-board to the MoJ Cloud Platform using a single manifest file. This file will then be applied against the extended API and create an 'vanilla' Cloud Platform environment. An example of this would look like:
 
