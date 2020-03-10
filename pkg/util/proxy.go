@@ -7,6 +7,7 @@ import (
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
+	"k8s.io/client-go/util/workqueue"
 )
 
 func GetPodsSharedIndexInformer(client kubernetes.Interface) cache.SharedIndexInformer {
@@ -28,4 +29,10 @@ func GetPodsSharedIndexInformer(client kubernetes.Interface) cache.SharedIndexIn
 		0,			   // no resync (period of 0)
 		cache.Indexers{},
 	)
+}
+
+func CreateWorkingQueue() workqueue.RateLimitingInterface {
+	//a result of listing or watching, we can add identifying key to the queue
+	//so that it can be handled in the handler
+	return workqueue.NewRateLimitingQueue(workqueue.DefaultControllerRateLimiter())
 }
