@@ -1,4 +1,4 @@
-# Cloud Platform Team CRD
+# Cloud Platform Team Operator
 
 ## Introduction
 This repository will contain the configuration and code to create a prototype Cloud Platform Custom Resource Definition (CRD) and Controller. At present the Cloud Platform on-boards development teams by having them execute a Ruby script in the [cloud-platform-environment](https://github.com/ministryofjustice/cloud-platform-environments) repository and answer some questions depending on their environment. This in turn creates a number of custom manifest files ready to submit a Pull Request. When merged to master a simple pipeline process runs and performs a simple `kubectl apply -f .` command.
