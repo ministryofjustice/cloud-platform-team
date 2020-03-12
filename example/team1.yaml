@@ -1,0 +1,11 @@
+apiVersion: cloud-platform.service.justice.gov.uk/v1
+kind: Team
+metadata:
+  labels:
+    project: ux
+  name: team123
+  namespace: default
+spec:
+  description: Awesome Snowdrop Team !
+  name: Spring Boot Team
+  size: 4

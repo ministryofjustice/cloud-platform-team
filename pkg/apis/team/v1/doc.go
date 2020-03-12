@@ -1,4 +1,4 @@
 // +k8s:deepcopy-gen=package
-// +groupName=jasonbirchall.com
+// +groupName=cloud-platform.service.justice.gov.uk
 
 package v1

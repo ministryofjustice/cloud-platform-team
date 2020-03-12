@@ -1,3 +1,3 @@
 package team
 
-const GroupName = "jasonbirchall.com"
+const GroupName = "cloud-platform.service.justice.gov.uk"
