@@ -13,7 +13,7 @@ type Handler interface {
 	ObjectUpdated(objOld, objNew interface{})
 }
 
-//SimpleHandler is a sample implemebtation of Handler
+//SimpleHandler is a sample implementation of Handler
 type SimpleHandler struct{}
 
 //init handles any handler initialisation
@@ -24,12 +24,12 @@ func (t *SimpleHandler) Init() error {
 
 //objectCreated is called when an object is created
 func (t *SimpleHandler) ObjectCreated(obj interface{}) {
-	log.info("SimpleHandler.ObjectCreated")
+	log.Info("SimpleHandler.ObjectCreated")
 	//assert the type to a pod object to pull out relevant data
 	pod := obj.(*core_v1.Pod)
-	log.Infof("	ResourceVersion: %s, pod.ObjectMeta.ResourceVersion")
-	log.Infof("	NodeName: %s, pod.Spec.NodeName")
-	log.Infof("	Phase: %s, pod.Status.Phase")
+	log.Infof("		ResourceVersion: %s", pod.ObjectMeta.ResourceVersion)
+	log.Infof("		NodeName: %s", pod.Spec.NodeName)
+	log.Infof("		Phase: %s", pod.Status.Phase)
 }
 
 // ObjectDeleted is called when an object is deleted
