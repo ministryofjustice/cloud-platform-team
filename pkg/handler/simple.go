@@ -5,7 +5,7 @@ import (
 	core_v1 "k8s.io/api/core/v1"
 )
 
-//handler interface contains the methods that are required
+// Handler interface contains the methods that are required
 type Handler interface {
 	Init() error
 	ObjectCreated(obj interface{})
@@ -13,23 +13,22 @@ type Handler interface {
 	ObjectUpdated(objOld, objNew interface{})
 }
 
-//SimpleHandler is a sample implementation of Handler
 type SimpleHandler struct{}
 
-//init handles any handler initialisation
+// Init handles any handler initialization
 func (t *SimpleHandler) Init() error {
 	log.Info("SimpleHandler.Init")
 	return nil
 }
 
-//objectCreated is called when an object is created
+// ObjectCreated is called when an object is created
 func (t *SimpleHandler) ObjectCreated(obj interface{}) {
 	log.Info("SimpleHandler.ObjectCreated")
-	//assert the type to a pod object to pull out relevant data
+	// assert the type to a Pod object to pull out relevant data
 	pod := obj.(*core_v1.Pod)
-	log.Infof("		ResourceVersion: %s", pod.ObjectMeta.ResourceVersion)
-	log.Infof("		NodeName: %s", pod.Spec.NodeName)
-	log.Infof("		Phase: %s", pod.Status.Phase)
+	log.Infof("    ResourceVersion: %s", pod.ObjectMeta.ResourceVersion)
+	log.Infof("    NodeName: %s", pod.Spec.NodeName)
+	log.Infof("    Phase: %s", pod.Status.Phase)
 }
 
 // ObjectDeleted is called when an object is deleted

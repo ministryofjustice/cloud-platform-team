@@ -9,32 +9,45 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/util/workqueue"
+
+	teamclientset "github.com/ministryofjustice/cloud-platform-team-operator/pkg/client/clientset/versioned"
+	teaminformer_v1 "github.com/ministryofjustice/cloud-platform-team-operator/pkg/client/informers/externalversions/team/v1"
 )
+
+
+func GetTeamsSharedIndexInformer(client kubernetes.Interface, teamclient teamclientset.Interface ) cache.SharedIndexInformer {
+	return teaminformer_v1.NewTeamInformer(
+		teamclient,
+		meta_v1.NamespaceAll,
+		0,
+		cache.Indexers{},
+	)
+}
 
 func GetPodsSharedIndexInformer(client kubernetes.Interface) cache.SharedIndexInformer {
 	return cache.NewSharedIndexInformer(
-		//the ListWatch contains two different functions that our
-		//informer requires: ListFunc to take care of listing and watching
-		//the resources we want to handle.
+		// the ListWatch contains two different functions that our
+		// informer requires: ListFunc to take care of listing and watching
+		// the resources we want to handle
 		&cache.ListWatch{
 			ListFunc: func(options meta_v1.ListOptions) (runtime.Object, error) {
-				//list all of the pods (core resource) in the default namespace
+				// list all of the pods (core resource) in the deafult namespace
 				return client.CoreV1().Pods(meta_v1.NamespaceDefault).List(options)
 			},
 			WatchFunc: func(options meta_v1.ListOptions) (watch.Interface, error) {
-				//watch all of the pods (core resource) in the default namespace
+				// watch all of the pods (core resource) in the default namespace
 				return client.CoreV1().Pods(meta_v1.NamespaceDefault).Watch(options)
 			},
 		},
-		&api_v1.Pod{}, //the target type (Pod)
+		&api_v1.Pod{}, // the target type (Pod)
 		0,             // no resync (period of 0)
 		cache.Indexers{},
 	)
 }
 
 func CreateWorkingQueue() workqueue.RateLimitingInterface {
-	//a result of listing or watching, we can add identifying key to the queue
-	//so that it can be handled in the handler
+	// a result of listing or watching, we can add an identifying key to the queue
+	// so that it can be handled in the handler
 	return workqueue.NewRateLimitingQueue(workqueue.DefaultControllerRateLimiter())
 }
 
