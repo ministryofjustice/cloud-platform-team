@@ -2,26 +2,26 @@ package controller
 
 import (
 	"fmt"
+	"time"
 	log "github.com/Sirupsen/logrus"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apimachinery/pkg/util/wait"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/util/workqueue"
-	"time"
 
 	"github.com/ministryofjustice/cloud-platform-team-operator/pkg/handler"
 )
 
-//controller struct defines how a controller should encapsulate
-//logging, client connectivity, informing (list and watching)
-//queueing, and handling of resource changes.
+// Controller struct defines how a controller should encapsulate
+// logging, client connectivity, informing (list and watching)
+// Queueing, and handling of resource changes
 type Controller struct {
-	Logger		*log.Entry
-	Clientset	kubernetes.Interface
-	Queue		workqueue.RateLimitingInterface
-	Informer	cache.SharedIndexInformer
-	Handler		handler.SimpleHandler
+	Logger    *log.Entry
+	Clientset kubernetes.Interface
+	Queue     workqueue.RateLimitingInterface
+	Informer  cache.SharedIndexInformer
+	Handler   handler.SimpleHandler
 }
 
 // Run is the main path of execution for the controller loop
