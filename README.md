@@ -10,6 +10,7 @@ This issue outlines the desire to move processes inside the Kubernetes ecosystem
 - [Premise](#premise)
 - [Initial Design](#initial-design)
 - [Proof of concept](#proof-of-concept)
+- [Glossary](https://kubernetes.io/docs/reference/glossary/?fundamental=true)
 
 ## Premise
 The idea of the Cloud Platform Team CRD and control loop is to allow users to on-board to the MoJ Cloud Platform using a single manifest file. This file will then be applied against the extended API and create an 'vanilla' Cloud Platform environment. An example of this would look like:
