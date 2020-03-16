@@ -13,7 +13,8 @@ type Team struct {
 	meta_v1.TypeMeta   `json:",inline"`
 	meta_v1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   TeamSpec   `json:"spec,omitempty"`
+	Spec   TeamSpec		`json:"spec,omitempty"`
+	Spec   Environment	`json:"spec,environment,omitempty"`
 }
 
 // TeamSpec defines the spec for a Team resource
@@ -21,6 +22,14 @@ type TeamSpec struct {
 	Name         string `json:"name"`
 	Description  string `json:"description"`
 	Size         int    `json:"size,omitempty"`
+}
+
+// TeamSpec defines the spec for a Team resource
+type Environment struct {
+	Name         string		`json:"name"`
+	Application	 string		`json:"application,omitempty"`
+	Production   bool		`json:"production,omitempty"`
+	SourceCode	 string		`json:"sourcecode,omitempty"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object

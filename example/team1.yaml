@@ -9,3 +9,8 @@ spec:
   description: Awesome Snowdrop Team !
   name: Spring Boot Team
   size: 4
+  environment:
+    name: dev
+    application: hello-world
+    production: false
+    sourcecode: https://github.com/ministryofjustice/cloud-platform-team-operator/tree/master/example

@@ -21,6 +21,9 @@ metadata:
   name: myapp-dev-team
 spec:
 - environment: dev
+    github_team: webops
+    production: false
+    source_code: https://github.com/ministryofjustice/cloud-platform-team-operator/tree/master/example
     monitoring:
     - basic_alerts: true
       slack_webhook: https://slack.xxxyyyzzz.io
