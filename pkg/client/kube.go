@@ -2,13 +2,13 @@ package client
 
 import (
 	"flag"
-	"path/filepath"
 	"os"
+	"path/filepath"
 
 	log "github.com/Sirupsen/logrus"
 	"k8s.io/client-go/kubernetes"
-	"k8s.io/client-go/tools/clientcmd"
 	restclient "k8s.io/client-go/rest"
+	"k8s.io/client-go/tools/clientcmd"
 
 	teamclientset "github.com/ministryofjustice/cloud-platform-team-operator/pkg/client/clientset/versioned"
 )
@@ -49,7 +49,7 @@ func GetKubernetesCRDClient() (kubernetes.Interface, teamclientset.Interface) {
 }
 
 // Retrieve the Kubernetes cluster client from outside of the cluster
-func GetKubernetesClient() (kubernetes.Interface) {
+func GetKubernetesClient() kubernetes.Interface {
 
 	// generate the client based off of the config
 	client, err := kubernetes.NewForConfig(config)

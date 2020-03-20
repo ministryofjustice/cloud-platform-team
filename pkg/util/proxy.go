@@ -14,8 +14,7 @@ import (
 	teaminformer_v1 "github.com/ministryofjustice/cloud-platform-team-operator/pkg/client/informers/externalversions/team/v1"
 )
 
-
-func GetTeamsSharedIndexInformer(client kubernetes.Interface, teamclient teamclientset.Interface ) cache.SharedIndexInformer {
+func GetTeamsSharedIndexInformer(client kubernetes.Interface, teamclient teamclientset.Interface) cache.SharedIndexInformer {
 	return teaminformer_v1.NewTeamInformer(
 		teamclient,
 		meta_v1.NamespaceAll,

@@ -2,13 +2,13 @@ package controller
 
 import (
 	"fmt"
-	"time"
 	log "github.com/Sirupsen/logrus"
 	utilruntime "k8s.io/apimachinery/pkg/util/runtime"
 	"k8s.io/apimachinery/pkg/util/wait"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/util/workqueue"
+	"time"
 
 	"github.com/ministryofjustice/cloud-platform-team-operator/pkg/handler"
 )
